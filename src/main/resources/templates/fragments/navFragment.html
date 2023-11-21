@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<nav th:fragment="navFragment(area)" class="navbar navbar-expand-lg bg-primary navbar-dark">
+
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link"  th:classAppend="${area == 'pizza-list' ? 'active' : ''}" th:href="@{/pizza}">pizza list</a>
+                </li>
+                <li class="nav-item" sec:authorize="hasAuthority('admin')">
+                    <a class="nav-link"  th:classAppend="${area == 'pizza-create' ? 'active' : ''}" th:href="@{/pizza/create}">create a pizza</a>
+                </li>
+                <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
+                    <a class="nav-link"  th:classAppend="${area == 'ingredient' ? 'active' : ''}" th:href="@{/ingredient}">ingredients</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+</nav>
+</body>
+</html>

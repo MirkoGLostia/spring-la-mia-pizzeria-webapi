@@ -1,5 +1,6 @@
 package org.exercise.java.springlamiapizzeriacrud.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import org.hibernate.annotations.OnDelete;
@@ -22,6 +23,7 @@ public class Ingredient {
 
     @ManyToMany(mappedBy = "ingredients")
     @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
     private List<Pizza> pizzas = new ArrayList<>();
 
 

@@ -1,5 +1,6 @@
 package org.exercise.java.springlamiapizzeriacrud.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
@@ -30,6 +31,7 @@ public class Pizza {
     private BigDecimal price;
 
     @OneToMany(mappedBy = "pizza")
+    @JsonIgnore
     private List<Offer> offers = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.LAZY)

@@ -1,0 +1,8 @@
+Esercizio di oggi: Spring La Mia Pizzeria WebApi
+nome repo: spring-la-mia-pizzeria-webapi
+IMPORTANTE: Continuiamo l’esercizio del giorno precedente. Stessa repo.
+Ciao ragazzi! per l’esercitazione di oggi potete scegliere tra due opzioni:
+Creiamo un semplice progetto frontend che richiami le api REST e tramite javascript mostri in pagina i dati. Vogliamo una pagina per la lista delle pizze (filtrabili per titolo), una per la creazione di una nuova pizza e il pulsante per la cancellazione di un elemento.
+Modifichiamo la gestione dell’immagine della pizza: invece che salvare l’url facciamo caricare all’utente il file e lo salviamo su database
+BONUS: fare entrambe le opzioni.
+Buon lavoro!

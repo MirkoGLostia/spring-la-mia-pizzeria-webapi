@@ -16,7 +16,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/pizza")
 @CrossOrigin
-public class BookRestController {
+public class PizzaRestController {
 
     @Autowired
     private PizzaService pizzaService;

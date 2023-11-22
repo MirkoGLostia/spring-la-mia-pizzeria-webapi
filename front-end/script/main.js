@@ -40,7 +40,10 @@ const renderPizza = (element) => {
                         <p class="card-text">${renderIngredients(element.ingredients)}</p>
 
                     </div>
-                    <div class="card-footer">${element.price}</div>
+                    <div class="card-footer">
+                        <span>${element.price}</span>
+                        <button onclick="deletePizza(${element.id})" type="button" class="btn btn-outline-primary mx-3" data-mdb-ripple-init>X</button>
+                    </div>
                 </div>`;
 }
 
@@ -68,6 +71,7 @@ const renderPizzaList = (pizzas) => {
 };
 
 const getPizzaList = async () => {
+
     try {
         const response = await axios.get(urlModified);
         renderPizzaList(response.data);
@@ -83,7 +87,6 @@ getPizzaList();
 
 function searchPizza() {
     const searchWord = document.getElementById('pizzaNameSearch').value;
-    document.getElementById('createPizzaBtn').classList.remove('invisible');
 
     if (searchWord != '') {
         urlModified += "?search=";
@@ -122,7 +125,7 @@ document.getElementById('newPizzaForm').addEventListener('submit', function (eve
                 if (response.error) {
                     throw new Error('Failed to create new pizza');
                 }
-                return window.location.replace("http://127.0.0.1:5500/index.html");;
+                return window.location.replace("http://127.0.0.1:5500/index.html");
 
             })
     } catch (error) {
@@ -130,4 +133,21 @@ document.getElementById('newPizzaForm').addEventListener('submit', function (eve
     }
 
 });
+
+
+
+
+// delete pizza http://localhost:8080/api/v1/pizza/5
+
+function deletePizza(x) {
+
+    urlModified += "/";
+    urlModified += x;
+
+    axios.delete(urlModified);
+
+    setTimeout(function () {
+        location.reload();
+    }, 1000);
+}
 

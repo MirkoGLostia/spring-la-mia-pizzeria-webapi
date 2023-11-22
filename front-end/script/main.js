@@ -80,8 +80,10 @@ getPizzaList();
 
 
 // search pizza
+
 function searchPizza() {
     const searchWord = document.getElementById('pizzaNameSearch').value;
+    document.getElementById('createPizzaBtn').classList.remove('invisible');
 
     if (searchWord != '') {
         urlModified += "?search=";
@@ -92,3 +94,40 @@ function searchPizza() {
 
     getPizzaList();
 };
+
+
+
+
+// create pizza
+
+document.getElementById('newPizzaForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    try {
+        var formData = new FormData(event.target);
+
+        fetch('http://localhost:8080/api/v1/pizza', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: formData.get('name'),
+                price: formData.get('price'),
+                image: formData.get('image'),
+                description: formData.get('description')
+            }),
+        })
+            .then(response => {
+                if (response.error) {
+                    throw new Error('Failed to create new pizza');
+                }
+                return window.location.replace("http://127.0.0.1:5500/index.html");;
+
+            })
+    } catch (error) {
+        console.error('unexpected error', error);
+    }
+
+});
+

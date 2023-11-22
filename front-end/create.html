@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <form id="newPizzaForm" class="row gy-2" method="POST">
+
+            <div class="col-9">
+
+                <div class="col-7">
+                    <label for="name" class="form-label">Pizza name</label>
+                    <input type="text" class="form-control" name="name" id="name">
+                </div>
+
+                <div class="col-3"></div>
+
+                <div class="col-2">
+                    <label for="price" class="form-label">Pizza price</label>
+                    <input type="number" class="form-control" name="price" id="price" step="any">
+                </div>
+
+                <div class="col-12">
+                    <label for="image" class="form-label">Pizza image URL</label>
+                    <input type="text" class="form-control" name="image" id="image">
+                </div>
+            </div>
+
+
+            <label for="description" class="form-label">Pizza description</label>
+            <textarea class="form-controll" name="description" id="description" rows="10"></textarea>
+
+
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Save</button>
+                <a href="http://127.0.0.1:5500/index.html" class="btn btn-primary">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="script/main.js"></script>
+
+</body>
+
+</html>
